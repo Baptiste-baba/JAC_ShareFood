@@ -1,8 +1,12 @@
 import React from 'react'
-import {StyleSheet, View, TextInput, Button, Text, Image, TouchableOpacity, ImageBackground} from 'react-native'
+import {StyleSheet, View, TextInput, Text, Image, TouchableOpacity, ImageBackground} from 'react-native'
+import PageInscription from "./PageInscription";
+import Page_Main from "./Page_Main";
 
 class Pageaccueil extends React.Component {
     render() {
+        const bouton_inscription = () => this.props.navigation.navigate("PageInscription")
+        const bouton_connexion = () => this.props.navigation.navigate("Page_Main")
         return(
             <View style={styles.main_container}>
                 <View style={styles.container_1}>
@@ -16,23 +20,26 @@ class Pageaccueil extends React.Component {
                 </View>
                 <View style={styles.container_3}>
                     <Text style={styles.text_identifiant}>Identifiant</Text>
-                    <TextInput style={styles.textinput_identifiant} keyboardType= 'email-address'
-                               placeholder='prénom.nom@eleve.isep.fr'></TextInput>
+                    <TextInput style={styles.textinput_identifiant}
+                               keyboardType= 'email-address'
+                               placeholder='prénom.nom@eleve.isep.fr'
+                    />
                 </View>
                 <View style={styles.container_4}>
                     <Text style={styles.text_motdepasse}>Mot De Passe</Text>
-                    <TextInput style={styles.textinput_motdepasse}></TextInput>
+                    <TextInput style={styles.textinput_motdepasse}
+                    />
                 </View>
                 <View style={styles.container_5}>
                     <View style={styles.container_button_connexion}>
-                        <TouchableOpacity onPress={() => alert("Button pressed")}>
+                        <TouchableOpacity onPress={() => bouton_connexion()}>
                             <ImageBackground style={styles.button_image} source={require("C:\\Users\\babad\\Documents\\Junior ISEP\\ShareFood\\assets\\bouton.png")}>
                                 <Text style={styles.text_image}>connexion</Text>
                             </ImageBackground>
                         </TouchableOpacity>
                     </View>
                     <View style={styles.container_button_inscription}>
-                        <TouchableOpacity onPress={() => alert("Button pressed")}>
+                        <TouchableOpacity onPress={() => bouton_inscription()}>
                             <ImageBackground style={styles.button_image} source={require("C:\\Users\\babad\\Documents\\Junior ISEP\\ShareFood\\assets\\bouton.png")}>
                                 <Text style={styles.text_image}>Inscription</Text>
                             </ImageBackground>
@@ -84,10 +91,11 @@ const styles = StyleSheet.create({
     },
     textinput_identifiant: {
         backgroundColor: 'white',
-        height: 30,
+        height: 40,
+        width: '85%',
         borderColor: 'white',
-        minWidth: 350,
-        maxWidth: 350
+        borderWidth: 2,
+        borderRadius: 20
     },
     container_4: {
         flex: 1,
@@ -102,10 +110,11 @@ const styles = StyleSheet.create({
     },
     textinput_motdepasse: {
         backgroundColor: 'white',
-        height: 30,
+        height: 40,
+        width: '85%',
         borderColor: 'white',
-        minWidth: 350,
-        maxWidth: 350,
+        borderWidth: 2,
+        borderRadius: 20
     },
     image: {
         width: 280,
