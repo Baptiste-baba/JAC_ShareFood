@@ -1,14 +1,12 @@
 import React from 'react'
-import Pageaccueil from "./Components/Pageaccueil";
-import Search from "./Components/Search";
-import LotsOfStyles from "./Components/Tests";
-import Tests from "./Components/Tests";
+import Navigation from './Navigation/Navigation'
+import Page_Main from "./Components/Page_Main";
+
 
 export default class App extends React.Component {
-  render() {
-    return (
-        <Pageaccueil/>
-    )
-  }
+    render() {
+        return (
+            <Navigation/>
+        )
+    }
 }
-
