@@ -1,6 +1,7 @@
 import React from 'react'
-import {StyleSheet, View, TextInput, Button, Text, Image, TouchableOpacity, ImageBackground} from 'react-native'
-import PageInscription from "./PageInscription";
+import {StyleSheet, View, FlatList, Text, TouchableOpacity, ImageBackground} from 'react-native'
+import Food from '../Helpers/FoodData'
+import Repas from "./Repas"
 
 class Page_Main extends React.Component {
     render() {
@@ -26,7 +27,11 @@ class Page_Main extends React.Component {
                     <Text style={styles.text_repas_proposees}>Repas Proposés</Text>
                 </View>
                 <View style={styles.container_3}>
-
+                    <FlatList
+                        data={Food}
+                        keyExtractor={(item) => item.id.toString()}
+                        renderItem={({item}) => <Repas plats={item}/>}
+                    />
                 </View>
                 <View style={styles.container_4}>
                     <TouchableOpacity onPress={() => alert("Button pressed")}>
@@ -81,8 +86,6 @@ const styles = StyleSheet.create ({
     },
     container_3: {
         flex: 3,
-        backgroundColor: 'rgb(255, 255, 255)',
-        borderRadius: 20
     },
     container_4: {
         flex: 1.5,
