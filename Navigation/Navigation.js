@@ -23,7 +23,7 @@ const LoginStackNavigator = createStackNavigator({
             headerShown: false
         }
     }
-
 })
 
 export default createAppContainer(LoginStackNavigator)
+
