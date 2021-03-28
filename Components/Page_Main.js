@@ -1,6 +1,6 @@
 import React from 'react'
 import {StyleSheet, View, FlatList, Text, TouchableOpacity, ImageBackground, ScrollView} from 'react-native'
-import Food from '../Helpers/FoodData'
+import FoodData from '../Helpers/FoodData'
 import Meals from "./Meals"
 
 
@@ -29,8 +29,8 @@ class Page_Main extends React.Component {
                 </View>
                 <View style={styles.container_3}>
                     <FlatList
-                        style={styles.test}
-                        data={Food}
+                        style={styles.flatList}
+                        data={FoodData}
                         keyExtractor={(item) => item.id.toString()}
                         renderItem={({item}) => <Meals meal={item}/>}
                     />
@@ -94,8 +94,7 @@ const styles = StyleSheet.create ({
         alignItems: 'flex-end',
         justifyContent: 'center',
     },
-    test: {
-        height: '100%'
+    flatList: {
     }
 
 })
