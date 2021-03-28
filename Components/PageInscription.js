@@ -3,43 +3,43 @@ import {StyleSheet, View, TextInput, Text, Image, TouchableOpacity, ImageBackgro
 
 class PageInscription extends React.Component {
     render () {
-        const bouton_inscription = () => this.props.navigation.navigate("Page_Main")
+        const inscription_button = () => this.props.navigation.navigate("Page_Main")
         return(
             <View style={styles.main_container}>
                 <View style={styles.container_1}>
-                    <Text style={styles.texte_inscription}>Inscription</Text>
+                    <Text style={styles.inscription_text}>Inscription</Text>
                 </View>
                 <View style={styles.container_2}>
                     <Image style={styles.image}
-                           source={require("C:\\Users\\babad\\Documents\\Junior ISEP\\ShareFood\\assets\\logo_inscription.png")}
+                           source={require("../assets/logo_inscription.png")}
                     />
                 </View>
                 <View style={styles.container_3}>
-                    <Text style={styles.texte_mail}>Adresse Mail:</Text>
-                    <TextInput style={styles.textinput_mail}
+                    <Text style={styles.email_text}>Adresse Mail:</Text>
+                    <TextInput style={styles.email_textinput}
                                keyboardType= 'email-address'
                                placeholder='prénom.nom@eleve.isep.fr'
                     />
                 </View>
                 <View style={styles.container_4}>
-                    <Text style={styles.texte_pseudo}>Pseudonyme:</Text>
-                    <TextInput style={styles.textinput_pseudo}
+                    <Text style={styles.pseudo_text}>Pseudonyme:</Text>
+                    <TextInput style={styles.pseudo_textinput}
                     />
                 </View>
                 <View style={styles.container_5}>
-                    <Text style={styles.texte_mdp}>Mot de passe:</Text>
-                    <TextInput style={styles.textinput_mdp}
+                    <Text style={styles.password_text}>Mot de passe:</Text>
+                    <TextInput style={styles.password_textinput}
                                placeholder='8 charactères minimum'
                     />
                 </View>
                 <View style={styles.container_6}>
-                    <Text style={styles.texte_confirmation}>Confirmation:</Text>
-                    <TextInput style={styles.textinput_confirmation}
+                    <Text style={styles.confirmation_text}>Confirmation:</Text>
+                    <TextInput style={styles.confirmation_textinput}
                     />
                 </View>
                 <View style={styles.container_7}>
-                    <TouchableOpacity onPress={() => bouton_inscription()}>
-                        <ImageBackground style={styles.button_image} source={require("C:\\Users\\babad\\Documents\\Junior ISEP\\ShareFood\\assets\\bouton.png")}>
+                    <TouchableOpacity onPress={() => inscription_button()}>
+                        <ImageBackground style={styles.button_image} source={require("../assets/bouton.png")}>
                             <Text style={styles.text_image}>Inscription</Text>
                         </ImageBackground>
                     </TouchableOpacity>
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
-    texte_inscription: {
+    inscription_text: {
         color: 'white',
         fontFamily: 'Arial',
         fontSize: 40,
@@ -81,13 +81,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
-    texte_mail: {
+    email_text: {
         color: 'white',
         fontFamily: 'Arial',
         fontSize: 20,
         marginRight: 30
     },
-    textinput_mail: {
+    email_textinput: {
         backgroundColor: 'white',
         height: 40,
         width: '60%',
@@ -101,13 +101,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
-    texte_pseudo: {
+    pseudo_text: {
         color: 'white',
         fontFamily: 'Arial',
         fontSize: 20,
         marginRight: 30
     },
-    textinput_pseudo: {
+    pseudo_textinput: {
         backgroundColor: 'white',
         height: 40,
         width: '60%',
@@ -121,13 +121,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
-    texte_mdp: {
+    password_text: {
         color: 'white',
         fontFamily: 'Arial',
         fontSize: 20,
         marginRight: 30
     },
-    textinput_mdp: {
+    password_textinput: {
         backgroundColor: 'white',
         height: 40,
         width: '60%',
@@ -141,13 +141,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center'
     },
-    texte_confirmation: {
+    confirmation_text: {
         color: 'white',
         fontFamily: 'Arial',
         fontSize: 20,
         marginRight: 30
     },
-    textinput_confirmation: {
+    confirmation_textinput: {
         backgroundColor: 'white',
         height: 40,
         width: '60%',
