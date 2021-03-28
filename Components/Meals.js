@@ -35,11 +35,12 @@ class Meals extends React.Component {
 
 const styles = StyleSheet.create({
     main_container: {
-        height: '55%',
         width: '95%',
+        height: 400,
         borderRadius: 20,
+        marginBottom: '40%',
         backgroundColor: 'rgb(255, 255, 255)',
-        marginLeft: 10
+
     },
     container: {
         flex: 1

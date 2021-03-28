@@ -88,6 +88,7 @@ const styles = StyleSheet.create ({
     },
     container_3: {
         flex: 3,
+        marginLeft: '5%',
     },
     container_4: {
         flex: 1.5,
