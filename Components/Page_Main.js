@@ -1,50 +1,49 @@
 import React from 'react'
-import {StyleSheet, View, FlatList, Text, TouchableOpacity, ImageBackground, ScrollView} from 'react-native'
+import {StyleSheet, View, FlatList, Text, TouchableOpacity, ImageBackground} from 'react-native'
 import FoodData from '../Helpers/FoodData'
 import Meals from "./Meals"
+import Add_Meal from "./Add_Meal";
 
 
-class Page_Main extends React.Component {
-    render() {
-        return(
-            <View style={styles.main_container}>
-                <View style={styles.container_1}>
-                    <View style={styles.container_search_button}>
-                        <TouchableOpacity onPress={() => alert("Button pressed")}>
-                            <ImageBackground
-                                style={styles.button_image} source={require("../assets/bouton_recherche.png")}>
-                            </ImageBackground>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={styles.container_menu_button}>
-                        <TouchableOpacity onPress={() => alert("Button pressed")}>
-                            <ImageBackground
-                                style={styles.button_image} source={require("../assets/bouton_menu.png")}>
-                            </ImageBackground>
-                        </TouchableOpacity>
-                    </View>
-                </View>
-                <View style={styles.container_2}>
-                    <Text style={styles.text_meal_offered}>Repas Proposés</Text>
-                </View>
-                <View style={styles.container_3}>
-                    <FlatList
-                        style={styles.flatList}
-                        data={FoodData}
-                        keyExtractor={(item) => item.id.toString()}
-                        renderItem={({item}) => <Meals meal={item}/>}
-                    />
-                </View>
-                <View style={styles.container_4}>
+const Page_Main =({ navigation }) => {
+    return(
+        <View style={styles.main_container}>
+            <View style={styles.container_1}>
+                <View style={styles.container_search_button}>
                     <TouchableOpacity onPress={() => alert("Button pressed")}>
                         <ImageBackground
-                            style={styles.button_image} source={require("../assets/bouton_ajouter.png")}>
+                            style={styles.button_image} source={require("../assets/bouton_recherche.png")}>
+                        </ImageBackground>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.container_menu_button}>
+                    <TouchableOpacity onPress={() => alert("Button pressed")}>
+                        <ImageBackground
+                            style={styles.button_image} source={require("../assets/bouton_menu.png")}>
                         </ImageBackground>
                     </TouchableOpacity>
                 </View>
             </View>
-        )
-    }
+            <View style={styles.container_2}>
+                <Text style={styles.text_meal_offered}>Repas Proposés</Text>
+            </View>
+            <View style={styles.container_3}>
+                <FlatList
+                    style={styles.flatList}
+                    data={FoodData}
+                    keyExtractor={(item) => item.id.toString()}
+                    renderItem={({item}) => <Meals Meals={item}/>}
+                />
+            </View>
+            <View style={styles.container_4}>
+                <TouchableOpacity onPress={() => navigation.navigate("Add_Meal")}>
+                    <ImageBackground
+                        style={styles.button_image} source={require("../assets/bouton_ajouter.png")}>
+                    </ImageBackground>
+                </TouchableOpacity>
+            </View>
+        </View>
+    )
 }
 
 const styles = StyleSheet.create ({

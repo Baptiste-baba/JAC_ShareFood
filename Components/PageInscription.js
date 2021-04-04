@@ -1,53 +1,63 @@
-import React from 'react'
+import React, {useState} from 'react'
 import {StyleSheet, View, TextInput, Text, Image, TouchableOpacity, ImageBackground} from 'react-native'
+import Page_Main from "./Page_Main";
 
-class PageInscription extends React.Component {
-    render () {
-        const inscription_button = () => this.props.navigation.navigate("Page_Main")
+const PageInscription = ({ navigation }) => {
+    const [text, setText] = useState('')
+    const [text2, setText2] = useState( '')
+    console.log([text, setText])
+    console.log([text2, setText2])
         return(
-            <View style={styles.main_container}>
-                <View style={styles.container_1}>
-                    <Text style={styles.inscription_text}>Inscription</Text>
-                </View>
-                <View style={styles.container_2}>
-                    <Image style={styles.image}
-                           source={require("../assets/logo_inscription.png")}
-                    />
-                </View>
-                <View style={styles.container_3}>
-                    <Text style={styles.email_text}>Adresse Mail:</Text>
-                    <TextInput style={styles.email_textinput}
-                               keyboardType= 'email-address'
-                               placeholder='prénom.nom@eleve.isep.fr'
-                    />
-                </View>
-                <View style={styles.container_4}>
-                    <Text style={styles.pseudo_text}>Pseudonyme:</Text>
-                    <TextInput style={styles.pseudo_textinput}
-                    />
-                </View>
-                <View style={styles.container_5}>
-                    <Text style={styles.password_text}>Mot de passe:</Text>
-                    <TextInput style={styles.password_textinput}
-                               placeholder='8 charactères minimum'
-                    />
-                </View>
-                <View style={styles.container_6}>
-                    <Text style={styles.confirmation_text}>Confirmation:</Text>
-                    <TextInput style={styles.confirmation_textinput}
-                    />
-                </View>
-                <View style={styles.container_7}>
-                    <TouchableOpacity onPress={() => inscription_button()}>
-                        <ImageBackground style={styles.button_image} source={require("../assets/bouton.png")}>
-                            <Text style={styles.text_image}>Inscription</Text>
-                        </ImageBackground>
-                    </TouchableOpacity>
-                </View>
+        <View style={styles.main_container}>
+            <View style={styles.container_1}>
+                <Text style={styles.inscription_text}>Inscription</Text>
             </View>
+            <View style={styles.container_2}>
+                <Image style={styles.image}
+                       source={require("../assets/logo_inscription.png")}
+                />
+            </View>
+            <View style={styles.container_3}>
+                <Text style={styles.email_text}>Adresse Mail:</Text>
+                <TextInput style={styles.email_textinput}
+                           keyboardType= 'email-address'
+                           placeholder='prénom.nom@eleve.isep.fr'
+                           onChangeText= {text2 => setText2(text2)}
+                           defaultValue={text2}
+                />
+            </View>
+            <View style={styles.container_4}>
+                <Text style={styles.pseudo_text}>Pseudonyme:</Text>
+                <TextInput style={styles.pseudo_textinput}
+                           onChangeText= {text2 => setText2(text2)}
+                           defaultValue={text2}
+                />
+            </View>
+            <View style={styles.container_5}>
+                <Text style={styles.password_text}>Mot de passe:</Text>
+                <TextInput style={styles.password_textinput}
+                           placeholder='8 charactères minimum'
+                           onChangeText= {text2 => setText2(text2)}
+                           defaultValue={text2}
+                />
+            </View>
+            <View style={styles.container_6}>
+                <Text style={styles.confirmation_text}>Confirmation:</Text>
+                <TextInput style={styles.confirmation_textinput}
+                           onChangeText= {text2 => setText2(text2)}
+                           defaultValue={text2}
+                />
+            </View>
+            <View style={styles.container_7}>
+                <TouchableOpacity onPress={() => navigation.navigate("Page_Main")}>
+                    <ImageBackground style={styles.button_image} source={require("../assets/bouton.png")}>
+                        <Text style={styles.text_image}>Inscription</Text>
+                    </ImageBackground>
+                </TouchableOpacity>
+            </View>
+        </View>
 
-        )
-    }
+    )
 }
 
 const styles = StyleSheet.create({

@@ -1,10 +1,10 @@
 import React from 'react'
-import {StyleSheet, View, Text, Image} from 'react-native'
+import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native'
 
-class Meals extends React.Component {
-    render() {
-        const meal = this.props.meal
-        return (
+const Meals =() => {
+
+    return(
+        <TouchableOpacity onPress={() => alert("Button pressed")}>
             <View style={styles.main_container}>
                 <View style={styles.container}>
                     <View style={styles.container_1}>
@@ -13,7 +13,7 @@ class Meals extends React.Component {
                         />
                     </View>
                     <View style={styles.container_2}>
-                        <Text style={styles.text_meal_name}>{meal.food_name}</Text>
+                        <Text style={styles.text_meal_name}>{Meals.food_name}</Text>
                     </View>
                     <View style={styles.container_3}>
                         <View style={styles.container_image_position}>
@@ -22,17 +22,14 @@ class Meals extends React.Component {
                             />
                         </View>
                         <View style={styles.container_text}>
-                            <Text style={styles.text_adress}>{meal.adress}</Text>
+                            <Text style={styles.text_adress}>{Meals.adress}</Text>
                         </View>
                     </View>
                 </View>
-
             </View>
-
-        )
-    }
+        </TouchableOpacity>
+    )
 }
-
 const styles = StyleSheet.create({
     main_container: {
         width: '95%',

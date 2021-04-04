@@ -1,54 +1,58 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {StyleSheet, View, TextInput, Text, Image, TouchableOpacity, ImageBackground} from 'react-native'
 import PageInscription from "./PageInscription";
 import Page_Main from "./Page_Main";
 
-class Login_page extends React.Component {
-    render() {
-        const inscription_button = () => this.props.navigation.navigate("PageInscription")
-        const login_button = () => this.props.navigation.navigate("Page_Main")
-        return(
-            <View style={styles.main_container}>
-                <View style={styles.container_1}>
-                    <Text style={styles.title_text}>Welcome to</Text>
-                    <Text style={styles.sharefood_text}>ShareFood</Text>
+const Login_page =({ navigation }) => {
+    const [text, setText] = useState('')
+    const [text2, setText2] = useState( '')
+    console.log([text, setText])
+    console.log([text2, setText2])
+    return(
+        <View style={styles.main_container}>
+            <View style={styles.container_1}>
+                <Text style={styles.title_text}>Welcome to</Text>
+                <Text style={styles.sharefood_text}>ShareFood</Text>
+            </View>
+            <View style={styles.container_2}>
+                <Image style={styles.image}
+                       source={require("../assets/logo.png")}
+                />
+            </View>
+            <View style={styles.container_3}>
+                <Text style={styles.login_text}>Identifiant</Text>
+                <TextInput style={styles.login_textinput}
+                           keyboardType= 'email-address'
+                           placeholder='prénom.nom@eleve.isep.fr'
+                           onChangeText= {text => setText(text)}
+                           defaultValue={text}
+                />
+            </View>
+            <View style={styles.container_4}>
+                <Text style={styles.password_text}>Mot De Passe</Text>
+                <TextInput style={styles.password_textinput}
+                           onChangeText= {text2 => setText2(text2)}
+                           defaultValue={text2}
+                />
+            </View>
+            <View style={styles.container_5}>
+                <View style={styles.container_login_button}>
+                    <TouchableOpacity onPress={() => navigation.navigate("Page_Main")}>
+                        <ImageBackground style={styles.button_image} source={require("../assets/bouton.png")}>
+                            <Text style={styles.text_image}>connexion</Text>
+                        </ImageBackground>
+                    </TouchableOpacity>
                 </View>
-                <View style={styles.container_2}>
-                    <Image style={styles.image}
-                           source={require("../assets/logo.png")}
-                    />
-                </View>
-                <View style={styles.container_3}>
-                    <Text style={styles.login_text}>Identifiant</Text>
-                    <TextInput style={styles.login_textinput}
-                               keyboardType= 'email-address'
-                               placeholder='prénom.nom@eleve.isep.fr'
-                    />
-                </View>
-                <View style={styles.container_4}>
-                    <Text style={styles.password_text}>Mot De Passe</Text>
-                    <TextInput style={styles.password_textinput}
-                    />
-                </View>
-                <View style={styles.container_5}>
-                    <View style={styles.container_login_button}>
-                        <TouchableOpacity onPress={() => login_button()}>
-                            <ImageBackground style={styles.button_image} source={require("../assets/bouton.png")}>
-                                <Text style={styles.text_image}>connexion</Text>
-                            </ImageBackground>
-                        </TouchableOpacity>
-                    </View>
-                    <View style={styles.container_inscription_button}>
-                        <TouchableOpacity onPress={() => inscription_button()}>
-                            <ImageBackground style={styles.button_image} source={require("../assets/bouton.png")}>
-                                <Text style={styles.text_image}>Inscription</Text>
-                            </ImageBackground>
-                        </TouchableOpacity>
-                    </View>
+                <View style={styles.container_inscription_button}>
+                    <TouchableOpacity onPress={() => navigation.navigate("PageInscription")}>
+                        <ImageBackground style={styles.button_image} source={require("../assets/bouton.png")}>
+                            <Text style={styles.text_image}>Inscription</Text>
+                        </ImageBackground>
+                    </TouchableOpacity>
                 </View>
             </View>
-        )
-    }
+        </View>
+    )
 }
 
 const styles = StyleSheet.create({
