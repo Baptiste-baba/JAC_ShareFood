@@ -1,49 +1,51 @@
 import React from 'react'
-import {StyleSheet, View, FlatList, Text, TouchableOpacity, ImageBackground} from 'react-native'
+import {StyleSheet, View, FlatList, Text, TouchableOpacity, ImageBackground, TextInput} from 'react-native'
 import FoodData from '../Helpers/FoodData'
 import Meals from "./Meals"
 import Add_Meal from "./Add_Meal";
 
+class Page_Main extends React.Component {
 
-const Page_Main =({ navigation }) => {
-    return(
-        <View style={styles.main_container}>
-            <View style={styles.container_1}>
-                <View style={styles.container_search_button}>
-                    <TouchableOpacity onPress={() => alert("Button pressed")}>
-                        <ImageBackground
-                            style={styles.button_image} source={require("../assets/bouton_recherche.png")}>
-                        </ImageBackground>
+    displayDetailForFood = (id) => {
+        this.props.navigation.navigate("FoodDetail", {idFood: id})
+    };
+
+    render() {
+        return(
+            <View style={styles.main_container}>
+                <View style={styles.container_1}>
+                    <View style={styles.container_search_textinput}>
+                        <TextInput style={styles.search_textinput}
+                        />
+                    </View>
+                    <View style={styles.container_menu_button}>
+                        <TouchableOpacity onPress={() => alert("Button pressed")}>
+                            <ImageBackground
+                                style={styles.button_image} source={require("../assets/bouton_menu.png")}>
+                            </ImageBackground>
+                        </TouchableOpacity>
+                    </View>
+                </View>
+                <View style={styles.container_2}>
+                    <Text style={styles.text_meal_offered}>Repas Proposés</Text>
+                </View>
+                <View style={styles.container_3}>
+                    <FlatList
+                        data={FoodData}
+                        keyExtractor={(item) => item.id.toString()}
+                        renderItem={({item}) => <Meals meal={item} displayDetailForFood={this.displayDetailForFood} />}
+                    />
+                </View>
+                <View style={styles.container_4}>
+                    <TouchableOpacity onPress={() => this.props.navigation.navigate('Add_Meal')}>
+                        <ImageBackground style={styles.button_image}
+                                         source={require("../assets/bouton_ajouter.png")}
+                        />
                     </TouchableOpacity>
                 </View>
-                <View style={styles.container_menu_button}>
-                    <TouchableOpacity onPress={() => alert("Button pressed")}>
-                        <ImageBackground
-                            style={styles.button_image} source={require("../assets/bouton_menu.png")}>
-                        </ImageBackground>
-                    </TouchableOpacity>
-                </View>
             </View>
-            <View style={styles.container_2}>
-                <Text style={styles.text_meal_offered}>Repas Proposés</Text>
-            </View>
-            <View style={styles.container_3}>
-                <FlatList
-                    style={styles.flatList}
-                    data={FoodData}
-                    keyExtractor={(item) => item.id.toString()}
-                    renderItem={({item}) => <Meals Meals={item}/>}
-                />
-            </View>
-            <View style={styles.container_4}>
-                <TouchableOpacity onPress={() => navigation.navigate("Add_Meal")}>
-                    <ImageBackground
-                        style={styles.button_image} source={require("../assets/bouton_ajouter.png")}>
-                    </ImageBackground>
-                </TouchableOpacity>
-            </View>
-        </View>
-    )
+        )
+    }
 }
 
 const styles = StyleSheet.create ({
@@ -57,11 +59,24 @@ const styles = StyleSheet.create ({
         alignItems: 'center',
         justifyContent: 'center'
     },
-    container_search_button: {
-        flex: 1,
+    container_search_textinput: {
+        flex: 5,
         alignItems: 'flex-start',
         justifyContent: 'flex-end',
-        marginRight: 50
+        marginLeft: 30
+    },
+    image: {
+        width: 80,
+        height: 80,
+        marginLeft: 15
+    },
+    search_textinput: {
+        backgroundColor: 'rgb(51, 204, 255)',
+        height: 60,
+        width: '95%',
+        borderColor: 'white',
+        borderWidth: 2,
+        borderRadius: 30
     },
     container_menu_button: {
         flex: 1,
@@ -94,9 +109,6 @@ const styles = StyleSheet.create ({
         alignItems: 'flex-end',
         justifyContent: 'center',
     },
-    flatList: {
-    }
-
 })
 
 export default Page_Main

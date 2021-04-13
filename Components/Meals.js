@@ -1,11 +1,16 @@
 import React from 'react'
 import {StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native'
+import FoodData from "../Helpers/FoodData";
 
-const Meals =() => {
+class Meals extends React.Component {
+    render() {
 
-    return(
-        <TouchableOpacity onPress={() => alert("Button pressed")}>
-            <View style={styles.main_container}>
+        const {meal, displayDetailForFood} = this.props
+
+        return (
+            <TouchableOpacity style={styles.main_container}
+                              onPress={() =>displayDetailForFood(meal.id)}
+            >
                 <View style={styles.container}>
                     <View style={styles.container_1}>
                         <Image style={styles.image}
@@ -13,7 +18,7 @@ const Meals =() => {
                         />
                     </View>
                     <View style={styles.container_2}>
-                        <Text style={styles.text_meal_name}>{Meals.food_name}</Text>
+                        <Text style={styles.text_meal_name}>{meal.food_name}</Text>
                     </View>
                     <View style={styles.container_3}>
                         <View style={styles.container_image_position}>
@@ -22,13 +27,13 @@ const Meals =() => {
                             />
                         </View>
                         <View style={styles.container_text}>
-                            <Text style={styles.text_adress}>{Meals.adress}</Text>
+                            <Text style={styles.text_adress}>{meal.adress}</Text>
                         </View>
                     </View>
                 </View>
-            </View>
-        </TouchableOpacity>
-    )
+            </TouchableOpacity>
+        );
+    }
 }
 const styles = StyleSheet.create({
     main_container: {

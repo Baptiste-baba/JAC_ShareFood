@@ -3,10 +3,14 @@ import {StyleSheet, View, TextInput, Text, Image, TouchableOpacity, ImageBackgro
 import Page_Main from "./Page_Main";
 
 const PageInscription = ({ navigation }) => {
-    const [text, setText] = useState('')
-    const [text2, setText2] = useState( '')
-    console.log([text, setText])
-    console.log([text2, setText2])
+    const [mail, setMail] = useState('')
+    const [pseudo, setPseudo] = useState( '')
+    const [password, setPassword] = useState( '')
+    const [confirmation, setConfirmation] = useState( '')
+    console.log([mail, setMail])
+    console.log([pseudo, setPseudo])
+    console.log([password, setPassword])
+    console.log([confirmation, setConfirmation])
         return(
         <View style={styles.main_container}>
             <View style={styles.container_1}>
@@ -22,30 +26,30 @@ const PageInscription = ({ navigation }) => {
                 <TextInput style={styles.email_textinput}
                            keyboardType= 'email-address'
                            placeholder='prénom.nom@eleve.isep.fr'
-                           onChangeText= {text2 => setText2(text2)}
-                           defaultValue={text2}
+                           onChangeText= {mail => setMail(mail)}
+                           defaultValue={mail}
                 />
             </View>
             <View style={styles.container_4}>
                 <Text style={styles.pseudo_text}>Pseudonyme:</Text>
                 <TextInput style={styles.pseudo_textinput}
-                           onChangeText= {text2 => setText2(text2)}
-                           defaultValue={text2}
+                           onChangeText= {pseudo => setPseudo(pseudo)}
+                           defaultValue={pseudo}
                 />
             </View>
             <View style={styles.container_5}>
                 <Text style={styles.password_text}>Mot de passe:</Text>
                 <TextInput style={styles.password_textinput}
                            placeholder='8 charactères minimum'
-                           onChangeText= {text2 => setText2(text2)}
-                           defaultValue={text2}
+                           onChangeText= {password => setPassword(password)}
+                           defaultValue={password}
                 />
             </View>
             <View style={styles.container_6}>
                 <Text style={styles.confirmation_text}>Confirmation:</Text>
                 <TextInput style={styles.confirmation_textinput}
-                           onChangeText= {text2 => setText2(text2)}
-                           defaultValue={text2}
+                           onChangeText= {confirmation => setConfirmation(confirmation)}
+                           defaultValue={confirmation}
                 />
             </View>
             <View style={styles.container_7}>
