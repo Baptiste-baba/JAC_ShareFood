@@ -6,6 +6,7 @@ import Page_Main from "../Components/Page_Main";
 import Tests from "../Components/Tests";
 import Add_Meal from "../Components/Add_Meal";
 import Cam from "../Components/Cam";
+import FoodDetail from "../Components/FoodDetail";
 
 const LoginStackNavigator = createStackNavigator({
     Login_page: {
@@ -34,6 +35,12 @@ const LoginStackNavigator = createStackNavigator({
     },
     Cam: {
         screen: Cam,
+        navigationOptions: {
+            headerShown: false
+        }
+    },
+    FoodDetail: {
+        screen: FoodDetail,
         navigationOptions: {
             headerShown: false
         }
