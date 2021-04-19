@@ -19,7 +19,7 @@ class Page_Main extends React.Component {
                         />
                     </View>
                     <View style={styles.container_menu_button}>
-                        <TouchableOpacity onPress={() => alert("Button pressed")}>
+                        <TouchableOpacity onPress={() => this.props.navigation.navigate('MenuPage')}>
                             <ImageBackground
                                 style={styles.button_image} source={require("../assets/bouton_menu.png")}>
                             </ImageBackground>
