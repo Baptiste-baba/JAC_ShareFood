@@ -7,6 +7,9 @@ import Tests from "../Components/Tests";
 import Add_Meal from "../Components/Add_Meal";
 import Cam from "../Components/Cam";
 import FoodDetail from "../Components/FoodDetail";
+import MenuPage from "../Components/MenuPage";
+import MyAds from "../Components/MyAds";
+import AddMoney from "../Components/AddMoney";
 
 const LoginStackNavigator = createStackNavigator({
     Login_page: {
@@ -44,7 +47,26 @@ const LoginStackNavigator = createStackNavigator({
         navigationOptions: {
             headerShown: false
         }
+    },
+    MenuPage: {
+        screen: MenuPage,
+        navigationOptions: {
+            headerShown: false
+        }
+    },
+    MyAds: {
+        screen: MyAds,
+        navigationOptions: {
+            headerShown: false
+        }
+    },
+    AddMoney: {
+        screen: AddMoney,
+        navigationOptions: {
+            headerShown: false
+        }
     }
+
 })
 
 export default createAppContainer(LoginStackNavigator)
