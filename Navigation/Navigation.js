@@ -10,6 +10,7 @@ import FoodDetail from "../Components/FoodDetail";
 import MenuPage from "../Components/MenuPage";
 import MyAds from "../Components/MyAds";
 import AddMoney from "../Components/AddMoney";
+import MyAccount from "../Components/MyAccount";
 
 const LoginStackNavigator = createStackNavigator({
     Login_page: {
@@ -62,6 +63,12 @@ const LoginStackNavigator = createStackNavigator({
     },
     AddMoney: {
         screen: AddMoney,
+        navigationOptions: {
+            headerShown: false
+        }
+    },
+    MyAccount: {
+        screen: MyAccount,
         navigationOptions: {
             headerShown: false
         }
