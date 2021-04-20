@@ -21,7 +21,7 @@ const MenuPage =({navigation}) => {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.container_4}>
-                    <TouchableOpacity onPress={() => navigation.navigate("Page_Main")}>
+                    <TouchableOpacity onPress={() => navigation.navigate("MyAccount")}>
                         <Text style={styles.accountText}>Mon compte</Text>
                     </TouchableOpacity>
                 </View>
