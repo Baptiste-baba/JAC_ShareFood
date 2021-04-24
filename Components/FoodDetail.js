@@ -5,6 +5,11 @@ import FoodData from "../Helpers/FoodData";
 class FoodDetail extends React.Component {
     render() {
 
+        const food_name = this.props.navigation.state.params.food_name
+        const adress = this.props.navigation.state.params.adress
+        const price = this.props.navigation.state.params.price
+        const image1 = this.props.navigation.state.params.image1
+
         return (
             <View style={styles.main_container}>
                 <TouchableOpacity onPress={() => this.props.navigation.navigate("Page_Main")}>
@@ -15,11 +20,11 @@ class FoodDetail extends React.Component {
                 <View style={styles.second_container}>
                     <View style={styles.container_1}>
                         <Image style={styles.image}
-                               source={require("../assets/nourriture_test.png")}
+                               source={ image1 }
                         />
                     </View>
                     <View style={styles.container_2}>
-                        <Text style={styles.text_meal}>{this.props.navigation.state.params.idFood}</Text>
+                        <Text style={styles.text_meal}>{ food_name }</Text>
                     </View>
                     <View style={styles.container_3}>
                         <View style={styles.container_image_position}>
@@ -28,12 +33,12 @@ class FoodDetail extends React.Component {
                             />
                         </View>
                         <View style={styles.container_adress}>
-                            <Text style={styles.text_adress}>{}</Text>
+                            <Text style={styles.text_adress}>{ adress }</Text>
                         </View>
                     </View>
                     <View style={styles.container_4}>
                         <View style={styles.price_container}>
-                            <Text style={styles.text_price}>€</Text>
+                            <Text style={styles.text_price}> { price }€</Text>
                         </View>
                         <View style={styles.money_container}>
                             <Image style={styles.image_money}

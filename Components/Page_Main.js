@@ -6,8 +6,8 @@ import Add_Meal from "./Add_Meal";
 
 class Page_Main extends React.Component {
 
-    displayDetailForFood = (id) => {
-        this.props.navigation.navigate("FoodDetail", {idFood: id})
+    displayDetailForFood = (food_name, adress, price, image1) => {
+        this.props.navigation.navigate("FoodDetail", { food_name: food_name, adress: adress, price: price, image1: image1 })
     };
 
     render() {

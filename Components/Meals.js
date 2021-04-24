@@ -9,12 +9,12 @@ class Meals extends React.Component {
 
         return (
             <TouchableOpacity style={styles.main_container}
-                              onPress={() =>displayDetailForFood(meal.id)}
+                              onPress={() =>displayDetailForFood(meal.food_name, meal.adress, meal.price, meal.image1)}
             >
                 <View style={styles.container}>
                     <View style={styles.container_1}>
                         <Image style={styles.image}
-                               source={require("../assets/nourriture_test.png")}
+                               source={meal.image1}
                         />
                     </View>
                     <View style={styles.container_2}>
